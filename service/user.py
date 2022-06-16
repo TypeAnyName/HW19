@@ -36,7 +36,7 @@ class UserService:
         )
 
     def create(self, user):
-        user['password'] = self.get_hash(user["password"])
+        user['password'] = self.generate_user_password(user["password"])
         return self.dao.create_user(user)
 
     def compare_passwords(self, password_hash, other_password):

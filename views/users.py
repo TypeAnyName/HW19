@@ -7,19 +7,6 @@ from implemented import user_service
 user_ns = Namespace('users')
 
 
-@user_ns.route('/')
-class UsersView(Resource):
-    def get(self):
-        us = user_service.get_all()
-        ues = UserSchema(many=True).dump(us)
-        return ues, 200
-
-    def post(self):
-        req_json = request.json
-        user_service.create(req_json)
-        return "", 201
-
-
 @user_ns.route("/<int:uid>")
 class UserView(Resource):
     def get(self, uid):
