@@ -11,7 +11,7 @@ auth_ns = Namespace('auth')
 class AuthView(Resource):
     def post(self):
         req_json = request.json
-        username = req_json.get("Username", None)
+        username = req_json.get("username", None)
         password = req_json.get("password", None)
         if None in (username, password):
             return "", 400
