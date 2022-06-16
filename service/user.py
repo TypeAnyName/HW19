@@ -47,5 +47,5 @@ class UserService:
                 other_password.encode('utf-8'),
                 PWD_HASH_SALT,
                 PWD_HASH_ITERATIONS
-            ).decode("utf-8", "ignore")
+            )
         )
