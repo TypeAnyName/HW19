@@ -7,6 +7,14 @@ from implemented import user_service
 user_ns = Namespace('users')
 
 
+@user_ns.route('/')
+class AuthRigister(Resource):
+    def post(self):
+        req_json = request.json
+        user_service.create(req_json)
+        return "", 201
+
+
 @user_ns.route("/<int:uid>")
 class UserView(Resource):
     def get(self, uid):
